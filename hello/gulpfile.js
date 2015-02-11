@@ -4,7 +4,7 @@ var reactify   = require('reactify');
 var source     = require('vinyl-source-stream');
 var serve      = require('gulp-serve');
 
-var sources = ['./src/bonjour.js', './src/run.js'];
+var sources = ['./src/hello.js', './src/run.js'];
 
 console.log(sources);
 

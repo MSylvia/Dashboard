@@ -1,4 +1,4 @@
 var React = require('react');
-var Bonjour = require('./bonjour.js');
+var Bonjour = require('Bonjour');
 
 React.render(<Bonjour />, document.getElementById('app'));

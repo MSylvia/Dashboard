@@ -1,4 +1,4 @@
 var React = require('react');
-var Hello = require('./hello.js');
+var Hello = require('Hello');
 
 React.render(Hello({}), document.getElementById('app'));
