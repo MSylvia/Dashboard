@@ -2,7 +2,7 @@
   "name": "bonjour",
   "version": "1.0.0",
   "description": "",
-  "main": "bonjour.js",
+  "main": "src/bonjour.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

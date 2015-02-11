@@ -4,12 +4,16 @@ var reactify   = require('reactify');
 var source     = require('vinyl-source-stream');
 var serve      = require('gulp-serve');
 
-var sources = ['./src/hello.js', './src/run.js'];
+
+var ActiveApps = ['dash', 'bonjour', 'hello'];
+var FinalPaths =[];
+
+var sources = ['./src/dash.js', './src/run.js'];
 
 console.log(sources);
 
 gulp.task('browserify', function () {
-	browserify({ entries: sources, paths: ['./src'] })
+	browserify({ entries: sources, paths: ['./src', '../bonjour/src'] })
 	.transform(reactify)
 	.bundle()
 	.pipe(source('bundle.js'))

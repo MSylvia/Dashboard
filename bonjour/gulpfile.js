@@ -13,13 +13,13 @@ gulp.task('browserify', function () {
 	.transform(reactify)
 	.bundle()
 	.pipe(source('bundle.js'))
-	.pipe(gulp.dest('./public'));
+	.pipe(gulp.dest('./dist'));
 });
 
 gulp.task('watch', function() {
     gulp.watch(sources, ['browserify']);
 });
 
-gulp.task('serve', ['browserify'], serve('public'));
+gulp.task('serve', ['browserify'], serve('dist'));
 
 gulp.task('default', ['browserify']);

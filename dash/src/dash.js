@@ -1,22 +1,22 @@
 var React = require("react");
 var Router = require("react-router");
 
+var Bonjour = require("Bonjour");
+
 var Link = Router.Link;
 var RouteHandler = Router.RouteHandler;
 
-
-var Bonjour = React.createClass({
+var Dash = React.createClass({
   render: function () {
   	return (
   		<div>
-	  		<h1>Buongiorno</h1>
-	  		<p><Link to="day">Day</Link></p>
-	  		<p><Link to="night">Night</Link></p>
+	  		<h1>Dash</h1>
+	  		<Bonjour />
 	  		<RouteHandler />
 	  	</div>
   	);
   }
 });
 
-module.exports = Bonjour;
+module.exports = Dash;
 
