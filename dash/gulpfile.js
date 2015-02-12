@@ -4,6 +4,7 @@ var reactify   = require('reactify');
 var source     = require('vinyl-source-stream');
 var serve      = require('gulp-serve');
 
+var browserSync = require('browser-sync');
 
 var ActiveApps = ['dash', 'bonjour', 'hello'];
 var FinalPaths =[];
@@ -17,13 +18,25 @@ gulp.task('browserify', function () {
 	.transform(reactify)
 	.bundle()
 	.pipe(source('bundle.js'))
-	.pipe(gulp.dest('./dist'));
+	.pipe(gulp.dest('./dist'))
+	.pipe(browserSync.reload({stream:true}));
+});
+
+gulp.task('browser-sync', function() {
+    browserSync({
+        server: {
+            baseDir: 'dist'
+        }
+    });
+});
+
+gulp.task('reload', function() {
+	browserSync.reload();
 });
 
 gulp.task('watch', function() {
-    gulp.watch(sources, ['browserify']);
+	gulp.watch(sources, ['browserify']);
 });
 
-gulp.task('serve', ['browserify'], serve('dist'));
-
-gulp.task('default', ['browserify']);
+gulp.task('serve', ['browserify','watch', 'browser-sync']);
+gulp.task('default', ['serve']);
